@@ -1,0 +1,7 @@
+{
+    "bot_name": "TT_Reports",
+    "version": "0.3.0",
+    "functions": {
+        "tt": "report"
+    }
+}
