@@ -48,9 +48,9 @@ def mes(arg):
 #return an emoji for the SLA of the ticket
 def sla(arg):
 	if arg:
-		return "⚪️"
+		return chaves['sla_in']
 	else:
-		return "‼️"
+		return chaves['sla_out']
 
 #counts the tickets
 def sla_count(jsonobj):

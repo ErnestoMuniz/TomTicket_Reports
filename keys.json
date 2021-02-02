@@ -1,13 +1,8 @@
 {
-    "tt_key": "YOURTOMTICKETAPIKEY",
+    "tt_key": "",
     "data": {
-        "some_department": {
-            "dp_id": "DepartmentIdHere",
-            "dp_name": "DepartamentNameHere"
-        },
-        "another_department": {
-            "dp_id": "DepartmentIdHere",
-            "dp_name": "DepartamentNameHere"
-        }
-    }
+        
+    },
+    "sla_in": "",
+    "sla_out": ""
 }
