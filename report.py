@@ -1,10 +1,21 @@
 #import needed modules
-import requests, time, json
+import requests, time, json, sys
 from datetime import date
 
 #loads variables from json files
-variaveis = json.load(open('variables.json', 'r'))
-chaves = json.load(open('keys.json', 'r'))
+try:
+    variaveis = json.load(open('variables.json', 'r'))
+    chaves = json.load(open('keys.json', 'r'))
+    if variaveis['arg'] not in chaves['data']:
+        with open('variables.json', 'w') as write_file:
+            variaveis['report'] = 'You sent an incorrect command'
+            json.dump(variaveis, write_file)
+            sys.exit()
+except Exception as e:
+    with open('variables.json', 'w') as write_file:
+        variaveis['report'] = 'An error ocourred'
+        json.dump(variaveis, write_file)
+        sys.exit()
 
 #request to API
 URL = 'https://api.tomticket.com/chamados/' + chaves['tt_key'] + '/1?situacao=0,1,2,3&departament_id=' + chaves['data'][variaveis['arg']]['dp_id']
