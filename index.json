@@ -1,6 +1,6 @@
 {
     "bot_name": "TT_Reports",
-    "version": "0.4.0",
+    "version": "0.4.2",
     "functions": {
         "tt": "report"
     }
