@@ -5,7 +5,7 @@ from datetime import date
 #loads variables from json files
 try:
     variaveis = json.load(open('variables.json', 'r'))
-    chaves = json.load(open('keys.json', 'r'))
+    chaves = json.load(open('keys.json', 'r', encoding='utf8'))
     if variaveis['arg'] not in chaves['data']:
         with open('variables.json', 'w') as write_file:
             variaveis['report'] = 'You sent an incorrect command'
@@ -98,7 +98,7 @@ for item in lista['data']:
 			progress += pmodel + '\n'
 
 #creates the message string
-mensagem = open('model.txt', 'r').read()
+mensagem = open('model.txt', 'r', encoding='utf8').read()
 mensagem = mensagem.replace('{dp_name}', chaves['data'][variaveis['arg']]['dp_name'])
 mensagem = mensagem.replace('{day}', str(hoje.day).zfill(2))
 mensagem = mensagem.replace('{month_name}', mes(hoje.month))
@@ -110,5 +110,5 @@ mensagem = mensagem.replace('{total_tickets}', str(lista['total_itens']))
 
 #dumps the message into the variables json
 variaveis['report'] = mensagem
-with open('variables.json', 'w') as write_file:
+with open('variables.json', 'w', encoding='utf8') as write_file:
     json.dump(variaveis, write_file)
