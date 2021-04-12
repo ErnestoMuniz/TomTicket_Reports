@@ -82,7 +82,10 @@ for item in lista['data']:
 			wmodel = wmodel.replace('{sla}', sla(item['sla_deadline_cumprido']))
 			wmodel = wmodel.replace('{ticket_protocol}', str(item['protocolo']))
 			wmodel = wmodel.replace('{ticket_title}', item['titulo'])
-			wmodel = wmodel.replace('{ticket_user}', item['atendente'])
+			if item['atendente'] != None:
+				pmodel = pmodel.replace('{ticket_user}', item['atendente'])
+			else:
+				pmodel = pmodel.replace('{ticket_user}', 'Sem Atendente')
 			waiting += wmodel + '\n'
 
 #create the in progress ticket string
