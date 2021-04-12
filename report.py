@@ -94,7 +94,10 @@ for item in lista['data']:
 			pmodel = pmodel.replace('{sla}', sla(item['sla_deadline_cumprido']))
 			pmodel = pmodel.replace('{ticket_protocol}', str(item['protocolo']))
 			pmodel = pmodel.replace('{ticket_title}', item['titulo'])
-			pmodel = pmodel.replace('{ticket_user}', item['atendente'])
+			if item['atendente'] != None:
+				pmodel = pmodel.replace('{ticket_user}', item['atendente'])
+			else:
+				pmodel = pmodel.replace('{ticket_user}', 'Sem Atendente')
 			progress += pmodel + '\n'
 
 #creates the message string
