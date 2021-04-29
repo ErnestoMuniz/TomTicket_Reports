@@ -23,6 +23,7 @@ page = requests.get(URL)
 
 #json from API response
 lista = page.json()
+print(lista)
 
 #creates time and date objects
 hoje = date.today()
@@ -83,9 +84,9 @@ for item in lista['data']:
 			wmodel = wmodel.replace('{ticket_protocol}', str(item['protocolo']))
 			wmodel = wmodel.replace('{ticket_title}', item['titulo'])
 			if item['atendente'] != None:
-				pmodel = pmodel.replace('{ticket_user}', item['atendente'])
+				wmodel = wmodel.replace('{ticket_user}', item['atendente'])
 			else:
-				pmodel = pmodel.replace('{ticket_user}', 'Sem Atendente')
+				wmodel = wmodel.replace('{ticket_user}', 'Sem Atendente')
 			waiting += wmodel + '\n'
 
 #create the in progress ticket string
